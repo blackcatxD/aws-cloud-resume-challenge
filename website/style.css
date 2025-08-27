@@ -14,6 +14,7 @@
   --accent-light: #cccccc;
   --sky-gradient-dark: linear-gradient(to bottom, #060010 0%, #090016 11%, #0a0121 48%, #0c012b 62%, #18023c 78%, #22034b 85%, #2e045a 92%, #370569 100%);
   --sky-gradient-light: linear-gradient(to bottom, #2980B9 0%, #6DD5FA 50%, #FFFFFF 100%);
+  --moon-glow: #fff; /* Default for dark theme */
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   --accent: var(--accent-light);
   --bg-accent: rgba(255, 255, 255, 0.8);
   --border: rgba(0, 0, 0, 0.05);
+  --moon-glow: #FFD700;
 }
 
 body::before {
@@ -56,8 +58,6 @@ body.light-theme::before {
   background: var(--sky-gradient-light);
 }
 
-/* Removed body::after to eliminate any potential square-like textures */
-
 /* Moon / Sun */
 .moon {
   position: absolute;
@@ -66,26 +66,16 @@ body.light-theme::before {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, #fff 60%, transparent);
-  box-shadow: 0 0 30px #fff;
+  background: radial-gradient(circle, var(--moon-glow) 60%, transparent);
+  box-shadow: 0 0 30px var(--moon-glow);
   z-index: -1;
   animation: moon-pulse 10s ease-in-out infinite;
   transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
-body.light-theme .moon {
-  background: radial-gradient(circle, #FFD700 60%, transparent);
-  box-shadow: 0 0 30px #FFD700;
-}
-
 @keyframes moon-pulse {
-  0%, 100% { box-shadow: 0 0 20px #fff; }
-  50% { box-shadow: 0 0 50px #fff; }
-}
-
-body.light-theme @keyframes moon-pulse {
-  0%, 100% { box-shadow: 0 0 20px #FFD700; }
-  50% { box-shadow: 0 0 50px #FFD700; }
+  0%, 100% { box-shadow: 0 0 20px var(--moon-glow); }
+  50% { box-shadow: 0 0 50px var(--moon-glow); }
 }
 
 /* Aurora for night mode */
@@ -221,17 +211,18 @@ body.light-theme .shooting-particle {
 
 body.light-theme .bird {
   opacity: 0.8;
-  animation: fly-horizontal 15s linear infinite, fly-vertical 2s ease-in-out infinite alternate;
 }
 
 @keyframes fly-horizontal {
-  0% { left: -5%; }
-  100% { left: 105%; }
+  0% { left: var(--start-left); }
+  100% { left: var(--end-left); }
 }
 
 @keyframes fly-vertical {
-  0% { top: calc(20% + 20px); }
-  100% { top: calc(20% - 20px); }
+  0%, 100% { top: var(--base-top); }
+  25% { top: calc(var(--base-top) - var(--amp) * 1vh); }
+  50% { top: var(--base-top); }
+  75% { top: calc(var(--base-top) + var(--amp) * 1vh); }
 }
 
 /* Fireflies for night mode */

@@ -27,10 +27,17 @@ function createParticles() {
     for (let i = 0; i < numBirds; i++) {
       const bird = document.createElement('i');
       bird.classList.add('fa-solid', 'fa-dove', 'bird');
-      bird.style.left = `${Math.random() * 100}%`;
-      bird.style.top = `${Math.random() * 40 + 10}%`;
+      const direction = Math.random() < 0.5 ? 1 : -1;
+      bird.style.setProperty('--start-left', direction === 1 ? '-10%' : '110%');
+      bird.style.setProperty('--end-left', direction === 1 ? '110%' : '-10%');
+      if (direction === -1) {
+        bird.style.transform = 'scaleX(-1)';
+      }
+      bird.style.setProperty('--base-top', `${Math.random() * 50 + 5}%`);
+      bird.style.setProperty('--amp', `${Math.random() * 10 + 5}`);
+      const dur = Math.random() * 20 + 20;
+      bird.style.animation = `fly-horizontal ${dur}s linear infinite, fly-vertical ${dur / 10}s ease-in-out infinite`;
       bird.style.animationDelay = `${Math.random() * 5}s`;
-      bird.style.animationDuration = `${Math.random() * 10 + 10}s`; // Vary speed
       bird.style.fontSize = `${Math.random() * 10 + 15}px`; // Vary size
       particlesContainer.appendChild(bird);
     }
