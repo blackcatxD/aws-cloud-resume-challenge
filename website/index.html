@@ -15,24 +15,30 @@
   <link rel="icon" href="favicon-32x32.png" type="image/png">
 </head>
 <body>
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
+  <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
   <div class="particles"></div>
   <div class="moon"></div>
+  <div class="aurora"></div>
   <div class="searchlight"></div>
   <div class="container">
     <!-- HERO -->
-    <div class="hero">
+    <div class="hero animate-slide">
+      <img src="profile.png" alt="Manoj Kumar Ramamurthy, Cloud & DevOps Engineer" class="profile-img" aria-label="Profile picture of Manoj Kumar Ramamurthy" loading="lazy">
       <h1>Manoj Kumar Ramamurthy</h1>
       <p class="title">AWS Certified Solutions Architect – Associate (SAA-C03) • Cloud & DevOps Engineer</p>
       <div class="info">
-        <span> Bangalore, India</span>
-        <span> SAA-C03 (2025–2028)</span>
-        <span> IaC · CI/CD · Containers</span>
-        <span> Ex-LTIMindtree (Vendor to Microsoft)</span>
+        <span>Bangalore, India</span>
+        <span>SAA-C03 (2025–2028)</span>
+        <span>IaC · CI/CD · Containers</span>
+        <span>Ex-LTIMindtree (Vendor to Microsoft)</span>
       </div>
     </div>
 
     <!-- QUICK NAV -->
-    <div class="quick-nav">
+    <div class="quick-nav animate-slide">
       <a href="#experience" class="quick-btn">View Experience</a>
       <a href="#skills" class="quick-btn">Key Skills</a>
       <a href="#certifications" class="quick-btn">Certifications</a>
@@ -41,7 +47,7 @@
     </div>
 
     <!-- SUMMARY -->
-    <section>
+    <section id="summary" class="animate-slide">
       <h2><i class="fa-solid fa-user"></i> Professional Summary</h2>
       <p>
         AWS Certified Solutions Architect – Associate (SAA-C03) with over 1.5 years of enterprise cloud and DevOps experience. 
@@ -54,34 +60,40 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience">
+    <section id="experience" class="animate-slide">
       <h2><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
-      <div class="xp-item">
-        <h3>Azure DevOps Engineer — LTIMindtree (Vendor to Microsoft)</h3>
-        <div class="meta">March 2024 - July 2025 | Bangalore, India</div>
-        <ul>
-          <li>Maintained 99.9%+ service availability for tenant-level operations and consistently met SLA/KPI targets across production environments.</li>
-          <li>Managed CI/CD pipelines, branch cuts and automated release workflows to ensure stable weekly releases.</li>
-          <li>Reduced incident MTTR by ~20% through enhanced observability (Kusto queries, Grafana), standardized runbooks, and streamlined escalation procedures.</li>
-          <li>Provisioned and optimized VM templates and cloud resources via internal portals to accelerate developer onboarding and delivery timelines (concepts applicable to EC2/AMI/Auto Scaling).</li>
-          <li>Administered identity and access management: app registrations, pre-authorization, license provisioning, Key Vault management, and SSO/MFA configurations.</li>
-          <li>Prepared and presented operational dashboards and SLA reports to stakeholders; maintained runbooks and documentation for audit readiness and knowledge transfer.</li>
-          <li>Collaborated with engineering and support teams to troubleshoot production issues and drive continuous improvement initiatives.</li>
-        </ul>
-      </div>
-      <div class="xp-item">
-        <h3>DevOps Intern — LTIMindtree</h3>
-        <div class="meta">February 2023 - April 2023 | Bangalore, India</div>
-        <ul>
-          <li>Selected for a competitive 3-month internship and completed training in core development and cloud fundamentals.</li>
-          <li>Completed three technical assessments; ranked among top candidates for full-time offer conversion.</li>
-          <li>Built foundational skills in software development and cloud operations, supporting transition to DevOps engineering.</li>
-        </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Azure DevOps Engineer — LTIMindtree (Vendor to Microsoft)</h3>
+            <div class="meta">March 2024 - July 2025 | Bangalore, India</div>
+            <ul>
+              <li>Maintained 99.9%+ service availability for tenant-level operations and consistently met SLA/KPI targets across production environments.</li>
+              <li>Managed CI/CD pipelines, branch cuts and automated release workflows to ensure stable weekly releases.</li>
+              <li>Reduced incident MTTR by ~20% through enhanced observability (Kusto queries, Grafana), standardized runbooks, and streamlined escalation procedures.</li>
+              <li>Provisioned and optimized VM templates and cloud resources via internal portals to accelerate developer onboarding and delivery timelines (concepts applicable to EC2/AMI/Auto Scaling).</li>
+              <li>Administered identity and access management: app registrations, pre-authorization, license provisioning, Key Vault management, and SSO/MFA configurations.</li>
+              <li>Prepared and presented operational dashboards and SLA reports to stakeholders; maintained runbooks and documentation for audit readiness and knowledge transfer.</li>
+              <li>Collaborated with engineering and support teams to troubleshoot production issues and drive continuous improvement initiatives.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>DevOps Intern — LTIMindtree</h3>
+            <div class="meta">February 2023 - April 2023 | Bangalore, India</div>
+            <ul>
+              <li>Selected for a competitive 3-month internship and completed training in core development and cloud fundamentals.</li>
+              <li>Completed three technical assessments; ranked among top candidates for full-time offer conversion.</li>
+              <li>Built foundational skills in software development and cloud operations, supporting transition to DevOps engineering.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" class="animate-slide">
       <h2><i class="fa-solid fa-gears"></i> Key Skills</h2>
       <div class="skills">
         <div class="skill-cat">
@@ -153,8 +165,26 @@
       </div>
     </section>
 
+    <!-- PROJECTS (Placeholder) -->
+    <section id="projects" class="animate-slide">
+      <h2><i class="fa-solid fa-code"></i> Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Project 1: Cloud Automation Tool</h3>
+          <p>A tool built with Terraform and AWS Lambda for automating infrastructure deployment.</p>
+          <a href="https://github.com/blackcatxD/project1" class="link-btn" target="_blank">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>Project 2: CI/CD Pipeline</h3>
+          <p>Implemented a full CI/CD pipeline using GitHub Actions and Docker for a web application.</p>
+          <a href="https://github.com/blackcatxD/project2" class="link-btn" target="_blank">View Project</a>
+        </div>
+        <!-- Add more as needed -->
+      </div>
+    </section>
+
     <!-- CERTIFICATIONS -->
-    <section id="certifications">
+    <section id="certifications" class="animate-slide">
       <h2><i class="fa-solid fa-certificate"></i> Certifications</h2>
       <ul>
         <li><strong>AWS Certified Solutions Architect – Associate (SAA-C03)</strong> (Valid August 2025 – August 2028)</li>
@@ -162,13 +192,13 @@
     </section>
 
     <!-- EDUCATION -->
-    <section>
+    <section id="education" class="animate-slide">
       <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
       <p><strong>B.Tech in Electronics and Communication Engineering</strong> — MITS Madanapalle (August 2019 – July 2023)</p>
     </section>
 
     <!-- LINKS -->
-    <section id="links">
+    <section id="links" class="animate-slide">
       <h2><i class="fa-solid fa-link"></i> Links</h2>
       <div class="links">
         <a href="https://linkedin.com/in/Manoj-kumar-ramamurthy" class="link-btn" target="_blank">LinkedIn</a>
@@ -176,10 +206,11 @@
       </div>
     </section>
 
-    <footer>
+    <footer class="animate-slide">
       © 2025 Manoj Kumar Ramamurthy · Built with HTML/CSS and hosted on AWS S3/CloudFront
     </footer>
   </div>
+  <button class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <!-- Link to separated JS file at the end of body -->
   <script src="script.js"></script>
