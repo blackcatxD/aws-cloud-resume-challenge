@@ -6,19 +6,16 @@ This repository contains the source code for my personal resume website, built a
 The project maintained demonstrates proficiency in:
 - **Frontend**: HTML, CSS, JavaScript
 - **Cloud Infrastructure**: AWS S3, CloudFront
-- **Infrastructure as Code (IaC)**: Terraform (or AWS CDK, if applicable)
+- **Infrastructure as Code (IaC)**: Terraform
 - **CI/CD**: GitHub Actions for automated deployment
 - **Version Control**: Git and GitHub with SSH authentication
 
 ## Website Details
-- **URL**: [https://your-domain.com](#) (replace with your actual S3/CloudFront URL once deployed)
+- **URL**: [https://resume.manojcloud.click](#) (replace with your actual S3/CloudFront URL once deployed)
 - **Files**:
   - `index.html`: Main structure of the resume website
   - `style.css`: Styling for the website, including animations (moon, particles, searchlight)
   - `script.js`: JavaScript for dynamic particle effects (stars and shooting stars)
-- **External Resources**:
-  - Google Fonts (Inter)
-  - Font Awesome for icons
 - **Features**:
   - Responsive design with a dark, space-themed aesthetic
   - Sections for professional summary, work experience, skills, certifications, education, and links
@@ -40,7 +37,7 @@ The project maintained demonstrates proficiency in:
 ### Local Development
 1. Clone the repository:
    ```bash
-   git clone git@github.com:your-username/your-repo-name.git
+   git clone git@github.com:blackcatxD/aws-cloud-resume-challenge.git
    ```
 2. Navigate to the project folder:
    ```bash
@@ -50,7 +47,7 @@ The project maintained demonstrates proficiency in:
 
 ### Deploying to AWS
 1. **IaC Setup**:
-   - Navigate to the `infra/` folder (if you’ve added Terraform files).
+   - Navigate to the `infra/` folder
    - Run:
      ```bash
      terraform init
@@ -58,23 +55,30 @@ The project maintained demonstrates proficiency in:
      ```
      This provisions the S3 bucket and CloudFront distribution.
 2. **CI/CD Pipeline**:
-   - A GitHub Actions workflow (`.github/workflows/deploy.yml`) syncs files to S3 on push:
+   - A GitHub Actions workflow (`.github/workflows/front-end-cicd.yml`) syncs files to S3 on push:
      ```yaml
-     name: Deploy to S3
-     on:
-       push:
-         branches: [ main ]
-     jobs:
-       deploy:
-         runs-on: ubuntu-latest
-         steps:
-           - uses: actions/checkout@v3
-           - uses: aws-actions/configure-aws-credentials@v1
-             with:
-               aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-               aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-               aws-region: us-east-1
-           - run: aws s3 sync . s3://your-bucket-name --delete
+     
+        name : Upload website to S3
+
+        on:
+          push:
+            branches:
+            - main
+          
+        jobs:
+          deploy:
+            runs-on: ubuntu-latest
+            steps:
+            - uses: actions/checkout@v4
+            - uses: jakejarvis/s3-sync-action@v0.5.1
+              with:
+              args: --follow-symlinks --delete
+              env:
+              AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+              AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              AWS_REGION: 'ap-south-1'
+              SOURCE_DIR: 'website'
      ```
    - Store AWS credentials in GitHub Secrets (Settings > Secrets and variables > Actions).
 
@@ -103,7 +107,7 @@ The project maintained demonstrates proficiency in:
 ## Contact
 - **LinkedIn**: [linkedin.com/in/Manoj](https://www.linkedin.com/in/manoj-kumar-ramamurthy)
 - **GitHub**: [github.com/Manoj](https://github.com/Manoj)
-- **Email**: your.email@example.com (replace with your email)
+- **Email**: rmk7382@gmail.com 
 
 ## License
 © 2025 Manoj Kumar Ramamurthy. All rights reserved.
