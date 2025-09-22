@@ -31,7 +31,7 @@ resource "aws_iam_policy" "iam_policy_for_resume_project" {
 
   name        = "aws_iam_policy_for_terraform_resume_project_policy"
   path        = "/"
-  description = "AWS IAM Policy for managing the resume project role"
+  description = "AWS IAM Policy for managing the resume project role."
     policy = jsonencode(
     {
       "Version" : "2012-10-17",
