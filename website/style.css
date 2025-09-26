@@ -1044,6 +1044,10 @@ footer.visible {
   }
   .hero h1 {
     font-size: 40px;
+    white-space: normal; /* Allow wrapping on mobile */
+    letter-spacing: 1px; /* Reduce spacing */
+    animation: none; /* Disable typing animation on mobile */
+    border-right: none; /* Remove caret */
   }
   .hero p.title {
     font-size: 18px;
@@ -1136,6 +1140,10 @@ footer.visible {
 @media (max-width: 480px) { /* Small mobile */
   .hero h1 {
     font-size: 32px;
+    white-space: normal; /* Allow wrapping */
+    letter-spacing: 1px;
+    animation: none;
+    border-right: none;
   }
   .hero p.title {
     font-size: 16px;
