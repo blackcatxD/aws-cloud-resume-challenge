@@ -1,6 +1,7 @@
 html {
   overflow-y: scroll; /* Force vertical scrollbar to prevent layout shift */
   overflow-x: hidden;
+  scrollbar-gutter: stable; /* Reserve space for scrollbar to avoid shift */
 }
 
 :root {
@@ -33,6 +34,8 @@ body {
   position: relative;
   scroll-behavior: smooth; /* Smooth scrolling */
   transition: background 0.5s ease, color 0.5s ease;
+  overflow-y: scroll; /* Reinforce on body */
+  scrollbar-gutter: stable; /* Reserve space for scrollbar */
 }
 
 .light-theme {
