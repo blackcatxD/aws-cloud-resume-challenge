@@ -175,3 +175,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+// New: Remove cursor after typing animation
+document.addEventListener('DOMContentLoaded', () => {
+  const h1 = document.querySelector('.hero h1');
+  h1.addEventListener('animationend', (e) => {
+    if (e.animationName === 'typing') {
+      h1.classList.add('typed');
+    }
+  });
+});
