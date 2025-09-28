@@ -1,7 +1,22 @@
 html {
-  overflow-y: scroll; /* Force vertical scrollbar to prevent layout shift */
+  overflow-y: auto; /* Changed to auto */
   overflow-x: hidden;
-  scrollbar-gutter: stable; /* Reserve space for scrollbar to avoid shift */
+  /* Removed scrollbar-gutter */
+}
+
+body {
+  overflow-y: auto; /* Changed to auto */
+  /* Removed scrollbar-gutter */
+}
+
+/* Hide scrollbar for all browsers */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
 }
 
 :root {
@@ -34,8 +49,6 @@ body {
   position: relative;
   scroll-behavior: smooth; /* Smooth scrolling */
   transition: background 0.5s ease, color 0.5s ease;
-  overflow-y: scroll; /* Reinforce on body */
-  scrollbar-gutter: stable; /* Reserve space for scrollbar to avoid shift */
 }
 
 .light-theme {
