@@ -312,6 +312,7 @@ body.light-theme .firefly {
   white-space: nowrap;
   overflow: hidden;
   /* Removed animation and border-right from CSS */
+  max-width: 100%; /* Prevent overflow on desktop */
 }
 
 .hero p.title {
