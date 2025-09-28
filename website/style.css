@@ -309,25 +309,9 @@ body.light-theme .firefly {
   text-transform: uppercase;
   color: var(--text-primary);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-  animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end 4; /* Changed to finite blink */
   white-space: nowrap;
   overflow: hidden;
-  border-right: 0.15em solid var(--text-primary);
-  animation-fill-mode: forwards; /* Keep final state */
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--text-primary); }
-}
-
-.hero h1.typed {
-  border-right: none; /* Class to remove cursor after typing */
+  /* Removed animation and border-right from CSS */
 }
 
 .hero p.title {
@@ -1095,8 +1079,6 @@ footer.visible {
     font-size: 40px;
     white-space: normal; /* Allow wrapping on mobile */
     letter-spacing: 1px; /* Reduce spacing */
-    animation: none; /* Disable typing animation on mobile */
-    border-right: none; /* Remove caret */
     overflow: visible !important;
     word-break: break-word;
     hyphens: auto;
@@ -1190,8 +1172,6 @@ footer.visible {
     font-size: 32px;
     white-space: normal; /* Allow wrapping */
     letter-spacing: 1px;
-    animation: none;
-    border-right: none;
     overflow: visible !important;
     word-break: break-word;
     hyphens: auto;

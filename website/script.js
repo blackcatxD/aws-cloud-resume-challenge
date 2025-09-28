@@ -176,12 +176,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// New: Remove cursor after typing animation
+// New: JS-based typing animation for h1
 document.addEventListener('DOMContentLoaded', () => {
   const h1 = document.querySelector('.hero h1');
-  h1.addEventListener('animationend', (e) => {
-    if (e.animationName === 'typing') {
-      h1.classList.add('typed');
+  const text = h1.textContent;
+  h1.textContent = '';
+  h1.style.borderRight = '0.15em solid var(--text-primary)';
+
+  let i = 0;
+  const typingSpeed = 100; // ms per character
+  const typingInterval = setInterval(() => {
+    if (i < text.length) {
+      h1.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(typingInterval);
+      // Blink cursor 3 times (1.5s total)
+      let blinks = 0;
+      const blinkInterval = setInterval(() => {
+        h1.style.borderRight = (blinks % 2 === 0) ? '0.15em solid var(--text-primary)' : 'none';
+        blinks++;
+        if (blinks > 6) { // 3 full blinks (even/odd pairs)
+          clearInterval(blinkInterval);
+          h1.style.borderRight = 'none';
+        }
+      }, 375); // Half of 0.75s for each state
     }
-  });
+  }, typingSpeed);
 });
